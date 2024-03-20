@@ -82,3 +82,13 @@ def daily_min(data):
     Index must be np.datetime64 compatible format."""
     return data.groupby(data.index.date).min()
 
+def daily_std(data):
+    """Calculate the daily std of a 2d data array.
+    Index must be np.datetime64 compatible format."""
+    return data.groupby(data.index.date).std()
+
+def compute_standard_deviation_by_day(data):
+    daily_std_list = map(daily_std, data)
+
+    daily_standard_deviation = pd.concat(daily_std_list)
+    return daily_standard_deviation 
