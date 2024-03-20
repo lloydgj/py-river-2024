@@ -18,8 +18,15 @@ def main(args):
     if not isinstance(InFiles, list):
         InFiles = [args.infiles]
     
-    if args.full_data_analysis:
-        data = compute_data.analyse_data(os.path.dirname(InFiles[0]))
+    if args.full_data_analysis: 
+        _, extention = os.path.dirname(InFiles[0]))
+        if extention == '.json':
+            data = analyse_data(JSONDataSource(os.path.dirname(InFiles[0])))
+        elif extention == '.csv':
+            data = analyse_data(CVSDataSource(os.path.dirname(InFiles[0])))
+        else:
+            raise ValueError(f'Unsupporter file format: (extention)')
+
         daily_standard_deviation = compute_standard_deviation_by_day(data)
 
         graph_data = {
