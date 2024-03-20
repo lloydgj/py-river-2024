@@ -19,7 +19,8 @@ def main(args):
         InFiles = [args.infiles]
     
     if args.full_data_analysis:
-        daily_standard_deviation = compute_data.analyse_data(os.path.dirname(InFiles[0]))
+        data = compute_data.analyse_data(os.path.dirname(InFiles[0]))
+        daily_standard_deviation = compute_standard_deviation_by_day(data)
 
         graph_data = {
             'daily standard deviation': daily_standard_deviation
