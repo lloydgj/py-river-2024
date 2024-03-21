@@ -17,8 +17,7 @@ def main(args):
     infiles = args.infiles
     if not isinstance(infiles, list):
         InFiles = [args.infiles]
-    
-  
+
     if args.full_data_analysis:
 
         _, extension = os.path.splitext(InFiles[0])
@@ -37,42 +36,48 @@ def main(args):
 
         views.visualize(graph_data)
 
+<<<<<<< HEAD
     for filename in infiles:
         measurement_data = models.read_variable_from_csv(filename,args.measurements)
         
+=======
+    for filename in InFiles:
+        measurement_data = models.read_variable_from_csv(filename, args.measurements)
+
+>>>>>>> 4d0145eb07b77bbe0627b3c3ea87baeb9333b20c
         view_data = {
-            'daily sum': models.daily_total(measurement_data), 
-            'daily average': models.daily_mean(measurement_data), 
-            'daily max': models.daily_max(measurement_data), 
+            'daily sum': models.daily_total(measurement_data),
+            'daily average': models.daily_mean(measurement_data),
+            'daily max': models.daily_max(measurement_data),
             'daily min': models.daily_min(measurement_data)}
-        
+
         views.visualize(view_data)
 
-def create_argparse():
 
+def create_argparse():
     parser = argparse.ArgumentParser(
         description='A basic environmental data management system')
 
     req_group = parser.add_argument_group('required arguments')
-    
+
     parser.add_argument(
         'infiles',
         nargs='+',
         help='Input CSV(s) containing measurement data')
 
     req_group.add_argument(
-        '-m', '--measurements', 
-        help = 'Name of measurement data series to load'
+        '-m', '--measurements',
+        help='Name of measurement data series to load'
     )
 
     parser.add_argument('--full-data-analysis', action='store_true', dest='full_data_analysis')
 
     return parser
 
+
 if __name__ == "__main__":
-    
     parser = create_argparse()
-    
+
     args = parser.parse_args()
-    
+
     main(args)
