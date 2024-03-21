@@ -37,8 +37,8 @@ def read_variable_from_csv(filename):
 
 def read_variable_from_xml(filename):
     """Reads a named variable from an XML file, and returns a
-    pandas dataframe containing that variable. The 
-
+    pandas dataframe containing that variable. 
+    
     :param filename: Filename of XML to load
     :return: 2D array of given variable. Index will be dates,
              Columns will be the individual sites
