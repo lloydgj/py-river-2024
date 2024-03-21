@@ -19,3 +19,7 @@ course_notes.txt
 # Virtual environment
 venv/
 .venv
+./venv
+./venv_new
+venv_new/
+.venv_new
