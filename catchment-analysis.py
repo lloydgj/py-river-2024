@@ -37,7 +37,7 @@ def main(args):
 
         views.visualize(graph_data)
 
-    for filename in InFiles:
+    for filename in infiles:
         measurement_data = models.read_variable_from_csv(filename,args.measurements)
         
         view_data = {
