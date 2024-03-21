@@ -36,15 +36,9 @@ def main(args):
 
         views.visualize(graph_data)
 
-<<<<<<< HEAD
-    for filename in infiles:
-        measurement_data = models.read_variable_from_csv(filename,args.measurements)
-        
-=======
     for filename in InFiles:
         measurement_data = models.read_variable_from_csv(filename, args.measurements)
 
->>>>>>> 4d0145eb07b77bbe0627b3c3ea87baeb9333b20c
         view_data = {
             'daily sum': models.daily_total(measurement_data),
             'daily average': models.daily_mean(measurement_data),
