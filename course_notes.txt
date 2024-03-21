@@ -1,0 +1,186 @@
+programming/coding vs engineering 
+- writing building and releasing of software (the whole process == engineering)
+- future software more likely to be demanded in peer review process?
+
+SSI funding for implementing...training, improve things, awareness. travel covered. it's a fellowship
+
+Setup
+git clone vs git import and fork?
+
+Software architecture
+- the fundemental structure of a software system. A high-level description of a software system, detailing the components (modules) and how they interact
+Model-view-controller (MVC) Architecture
+- model could hold the raw data or functions that deal with the raw data e.g. nc files 
+- controller - deals with user input and 'liases' with model. 'brains' of the app
+- view directly interact with the user
+catchment-analysis.py is the controller 
+codeacademy.com/article/mvc
+
+requirements commands useful
+(venv) (base) mzdi7gl2@E-LOSXS0EQ6L4 py-river-2024 % python -m pip freeze > requirements.txt
+(venv) (base) mzdi7gl2@E-LOSXS0EQ6L4 py-river-2024 % less requirements.txt
+(venv) (base) mzdi7gl2@E-LOSXS0EQ6L4 py-river-2024 % python -m pip install -r requirements.txt
+
+Think about your BCP scripts and their grouping in relation to the Model-View-Controller architecture
+
+Requirements.txt via command line
+contourpy==1.1.1
+cycler==0.12.1
+fonttools==4.50.0
+importlib_resources==6.3.1
+kiwisolver==1.4.5
+matplotlib==3.7.5
+numpy==1.24.4
+packaging==24.0
+pandas==2.0.3
+pillow==10.2.0
+pyparsing==3.1.2
+python-dateutil==2.9.0.post0
+pytz==2024.1
+six==1.16.0
+tzdata==2024.1
+zipp==3.18.1
+
+installed pytest through the VSC and freeze requirements again
+
+contourpy==1.1.1
+cycler==0.12.1
+exceptiongroup==1.2.0
+fonttools==4.50.0
+importlib_resources==6.3.1
+iniconfig==2.0.0
+kiwisolver==1.4.5
+matplotlib==3.7.5
+numpy==1.24.4
+packaging==24.0
+pandas==2.0.3
+pillow==10.2.0
+pluggy==1.4.0
+pyparsing==3.1.2
+pytest==8.1.1
+python-dateutil==2.9.0.post0
+pytz==2024.1
+six==1.16.0
+tomli==2.0.1
+tzdata==2024.1
+zipp==3.18.1
+
+After venv activation installing packages will be associated with that environment. calling (venv) (base) mzdi7gl2@E-LOSXS0EQ6L4 py-river-2024 % python -m pip freeze > requirements.txt will output a txt file listing the packages.
+
+GIT overview with github.
+feature branches
+main/develop/features
+review head/branch detached head etc
+
+Understanding of merges - 
+
+(venv) (base) mzdi7gl2@E-LOSXS0EQ6L4 py-river-2024 % git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+https://carpentries-incubator.github.io/python-intermediate-development-earth-sciences/14-collaboration-using-git/index.html
+
+Recap - 
+Work on main, developer and feature branches. We created branches with commands such as:
+git switch
+git checkout
+then we made some minor edits to .py scripts. e.g. catcment-analysis.py
+then commit changes by merging with the main branch
+* review how the merge/commit process works.
+
+We looked at Visual Studio Code and some useful syntax searching (e.g. peek) 
+We looked at PEP 8 guidelines for code style
+We installed pylint
+
+TUESDAY
+Automatically testing software -
+	- unit tests
+		a. small specific units of functionality
+	- functional or integration tests
+		b. test functional paths
+	- regression tests
+		c. makes sure programs output has not changed
+		
+Regression tests
+Making sure output hasn't changed
+
+Functional or integration tests
+functional path testing
+
+Unit tests
+Small and specific functionality
+determine function returns output as expected
+
+disadvantages
+can take a while to run these tests (presumably dependent on what you are doing!)
+
+Unit testing
+Finished first session with unit tests - failure test (success on fail!)
+
+https://carpentries-incubator.github.io/python-intermediate-development-earth-sciences/22-scaling-up-unit-testing/index.html
+
+Decorators to wrap parametrization/functions
+creation of new tests
+*review material
+
+Coverage testing
+
+Test driven development (TDD)
+Writing tests before writing the code
+tests as spec for code
+find feature, write test, write code to make it pass
+
+Limits to testing
+you can't test everything and may not be valuable
+
+Continuous integration 
+YAML files
+key value pairs
+nested key value pairs
+
+https://carpentries-incubator.github.io/python-intermediate-development-earth-sciences/23-continuous-integration-automated-testing/index.html
+
+we pushed an action file .yml to github that initiated a build.
+
+DEBUGGING
+we went through some information about debugging in VSC
+
+ICCS - dominic dorchard
+validation vs verification
+right model vs right implementation?
+verification wrt specification
+
+A is a subtype of B written A :<B
+
+Parametric Polymorphism
+(also generic types)
+
+	def first(xs : list[str]) -> str:
+		return xs[0]
+		
+Wednesday AM
+design / planning of software projects. 
+
+Refactoring of code
+Decoupling - break down code into small parts
+Function should do one thing and do that thing very clearly (and well!)
+		
+pathlib create path object
+
+Pure functions
+def append_item1(a_list,item):
+	a_list += [item] 
+	return a_list
+! not a pure function as it changes a_list
+
+Code abstractions
+*review map function
+
+procedural vs object oriented programming
+encapsulation provides information hiding abstraction provides implementation hiding
+
+
+		
