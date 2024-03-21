@@ -182,5 +182,6 @@ Code abstractions
 procedural vs object oriented programming
 encapsulation provides information hiding abstraction provides implementation hiding
 
-
-		
+**Positional vs optional arguments
+must be grouped together
+argparse only has TWO option Positional and Optional		
