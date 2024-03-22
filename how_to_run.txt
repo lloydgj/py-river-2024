@@ -1,0 +1,2 @@
+python catchment-analysis.py -m 'pH continuous' data/river_data_2015-12.csv
+python catchment-analysis.py --full-data-analysis -m'Rainfall (mm)'  data/rain_data_2015-12.csv
