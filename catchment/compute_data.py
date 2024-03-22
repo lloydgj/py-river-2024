@@ -46,23 +46,27 @@ def load_catchment_data(data_dir):
     data = map(models.read_variable_from_csv, data_file_paths)
     return data
 
+
 class CSVDataSource:
     """Creates a class for CSV data sources.
     Function load_catchment_data allows for loading in the CSV files."""
     def __init__(self, data_dir):
         self.data_dir = data_dir
+
     def load_catchment_data(self):
         data_file_paths = glob.glob(os.path.join(self.data_dir, 'rain_data_2015*.csv'))
         if len(data_file_paths) == 0:
             raise ValueError('No CSV files found in the data directory')
         data = map(models.read_variable_from_csv, data_file_paths)
         return data
-    
+
+
 class JSONDataSource:
     """Creates a class for JSON data sources.
     Function load_catchment_data allows for loading in the JSON files."""
     def __init__(self, data_dir):
         self.data_dir = data_dir
+
     def load_catchment_data(self):
         data_file_paths = glob.glob(os.path.join(self.data_dir, 'rain_data_2015*.json'))
         if len(data_file_paths) == 0:
