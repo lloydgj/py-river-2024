@@ -15,6 +15,7 @@ def analyse_data(data_dir):
     works out the mean for each day, and then graphs the standard deviation
     of these means.
     """
+    #data = data_dir.load_catchment_data()
     data = data_dir.load_catchment_data()
 
     daily_standard_deviation = compute_standard_deviation_by_day(data)
@@ -54,6 +55,7 @@ class CSVDataSource:
         self.data_dir = data_dir
 
     def load_catchment_data(self):
+        print("running CSV")
         data_file_paths = glob.glob(os.path.join(self.data_dir, 'rain_data_2015*.csv'))
         if len(data_file_paths) == 0:
             raise ValueError('No CSV files found in the data directory')
@@ -68,6 +70,7 @@ class JSONDataSource:
         self.data_dir = data_dir
 
     def load_catchment_data(self):
+        print("running JSON")
         data_file_paths = glob.glob(os.path.join(self.data_dir, 'rain_data_2015*.json'))
         if len(data_file_paths) == 0:
             raise ValueError('No JSON files found in the data directory')

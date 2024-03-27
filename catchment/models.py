@@ -22,6 +22,7 @@ def read_variable_from_csv(filename, measurements='Rainfall (mm)'):
     :return: 2D array of given variable. Index will be dates,
              Columns will be the individual sites
     """
+    #print(measurements)
     dataset = pd.read_csv(filename, usecols=['Date', 'Site', measurements])
 
     dataset = dataset.rename({'Date': 'OldDate'}, axis='columns')
