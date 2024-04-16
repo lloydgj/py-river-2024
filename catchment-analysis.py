@@ -15,7 +15,7 @@ def main(args):
     """
     infiles = args.infiles
     if not isinstance(infiles, list):
-        InFiles = [args.infiles]
+        infiles = [args.infiles]
 
     if args.full_data_analysis:
 
@@ -35,16 +35,18 @@ def main(args):
 
         views.visualize(graph_data)
 
-    for filename in infiles:
-        measurement_data = models.read_variable_from_csv(filename, args.measurements)
+    #for filename in infiles:
+        #measurement_data = models.read_variable_from_csv(filename, args.measurements)
+        if extension == '.csv':
+            measurement_data = compute_data.CSVDataSource(os.path.dirname(infiles[0]))
 
-        view_data = {
-            'daily sum': models.daily_total(measurement_data),
-            'daily average': models.daily_mean(measurement_data),
-            'daily max': models.daily_max(measurement_data),
-            'daily min': models.daily_min(measurement_data)}
+            view_data = {
+                'daily sum': models.daily_total(measurement_data),
+                'daily average': models.daily_mean(measurement_data),
+                'daily max': models.daily_max(measurement_data),
+                'daily min': models.daily_min(measurement_data)}
 
-        views.visualize(view_data)
+            views.visualize(view_data)
 
 
 def create_argparse():
